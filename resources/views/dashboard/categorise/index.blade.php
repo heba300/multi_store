@@ -33,7 +33,7 @@
             <th>ID</th>
             <th>NAME</th>
             <th>PARENT</th>
-            <th>Products #</th>
+            <th>Products</th>
             <th>Status</th>
             <th>Created_at</th>
             <th>actions</th>

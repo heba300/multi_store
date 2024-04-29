@@ -12,7 +12,8 @@
     <a class="btn btn-sm btn-success mb-2" href="{{ route('dashboard.categories.index') }}">goToCategories</a>
     <table class="table">
         <thead>
-            <th></th>
+            <th>#</th>
+            <th>Image</th>
             <th>NAME</th>
             <th>store</th>
             <th>Status</th>
@@ -23,11 +24,13 @@
             @php
                 $products = $category->products()->with('store')->latest()->paginate(5);
             @endphp
-            @forelse ($products as $product)
+            @forelse ($products as $index=>$product)
                 <tr>
+                    <td>{{ ++$index }}</td>
+
                     <td>
-                        @if ($product->image)
-                            <img src="{{ asset('storage/' . $product->image) }}" height="60" alt="">
+                        @if ($category->image)
+                            <img src="{{ asset('storage/' . $category->image) }}" height="60" alt="">
                         @else
                             <img src="{{ asset('dist/img/heba.png') }}" height="60">
                         @endif

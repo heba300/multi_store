@@ -23,7 +23,7 @@
             <option value="active" @selected(request('status') == 'active')>Active</option>
             <option value="archived" @selected(request('status') == 'archived')>Archived</option>
         </select>
-        <button class="btn btn-dark mx-2">Filter</button>
+        <button type="submit" class="btn btn-dark mx-2">Filter</button>
     </form>
 
     <table class="table">

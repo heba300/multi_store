@@ -21,7 +21,9 @@
         <option value="">Primary category</option>
 
         @foreach ($parents as $parent)
-            <option value="{{ $parent->id }}">{{ $parent->name }} @selected(old('parent_id', $category->parent_id) == $parent->id)</option>
+            <option value="{{ $parent->id }}" @selected(old('parent_id', $category->parent_id) == $parent->id)>
+                {{ $parent->name }}
+            </option>
         @endforeach
     </select>
 </div>

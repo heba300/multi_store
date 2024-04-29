@@ -40,7 +40,7 @@ class CategoriesController extends Controller
                 }
             ])
             ->filter($request->query())->orderBy('categories.name')->paginate();
-
+        //scopeFilter
         return view('dashboard.categorise.index', compact('categories'));
     }
 
@@ -152,7 +152,7 @@ class CategoriesController extends Controller
 
     public function trash()
     {
-        $category = Category::onlyTrashed()->paginate();
+        $category = Category::onlyTrashed()->filter(request()->query())->paginate();
         return view('dashboard.categorise.trash', ['categories' => $category]);
     }
     public function restore(Request $request, $id)

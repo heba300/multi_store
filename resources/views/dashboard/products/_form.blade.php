@@ -37,7 +37,7 @@
     <x-form.input name="compare_price" label='compare price' :value="$product->compare_price" />
 </div>
 <div class="form-group">
-    <x-form.input name="tag" label='Tag' :value="$product->tag" />
+    <x-form.input label="Tags" name="tags" :value="$tags" />
 </div>
 
 <div class="form-group">
@@ -53,3 +53,17 @@
 <div class="form-group">
     <button type="submit" class="btn btn-primary">{{ $button_label ?? 'save' }}</button>
 </div>
+
+@push('styles')
+    <link href="{{ asset('dist/css/tagify.css') }}" rel="stylesheet" type="text/css" />
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('dist/js/tagify.polyfills.min.js') }}"></script>
+    <script src="{{ asset('dist/js/tagify.js') }}"></script>
+
+    <script>
+        var inputElm = document.querySelector('[name=tags]'),
+            tagify = new Tagify(inputElm);
+    </script>
+@endpush

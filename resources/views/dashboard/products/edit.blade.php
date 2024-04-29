@@ -13,6 +13,6 @@
         @csrf
         @method('put')
 
-        @include('dashboard.products._form')
+        @include('dashboard.products._form', ['tags' => $tags])
     </form>
 @endsection
